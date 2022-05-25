@@ -35,16 +35,20 @@ namespace TechJobsPersistent.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(Skill skill)
+        public IActionResult Add(AddSkillViewModel addSkillViewModel)
         {
             if (ModelState.IsValid)
             {
+                Skill skill = new Skill
+                {
+
+                };
                 context.Skills.Add(skill);
                 context.SaveChanges();
                 return Redirect("/Skill/");
             }
 
-            return View("Add", skill);
+            return View("Add", addSkillViewModel);
         }
 
         public IActionResult AddJob(int id)

@@ -30,8 +30,7 @@ namespace TechJobsPersistent.Controllers
 
         public IActionResult Add()
         {
-            Skill skill = new Skill();
-            return View(skill);
+            return View();
         }
 
         [HttpPost]
@@ -41,7 +40,8 @@ namespace TechJobsPersistent.Controllers
             {
                 Skill skill = new Skill
                 {
-
+                    Name = addSkillViewModel.Name,
+                    Description = addSkillViewModel.Description
                 };
                 context.Skills.Add(skill);
                 context.SaveChanges();
